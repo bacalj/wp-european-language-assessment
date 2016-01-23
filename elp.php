@@ -18,9 +18,9 @@ function add_elp($content) {
   global $post;
   if ( is_page($page->ID) ) {
 
-
-      //set up the section of the page
-      $elp_content .= '<section class="elp">';
+      //set up the sections
+      //$elp_graph .= '<section class="elp-graph">';
+      $elp_content .= '<section class="elp-content">';
 
       $elp_categories = array(
         'Listening',
@@ -30,24 +30,14 @@ function add_elp($content) {
         'Writing'
       );
 
-      $elp_score_options = array(
-        'A1' => '50px',
-        'A2' => '100px',
-        'B1' => '150px',
-        'B2' => '200px',
-        'C1' => '250px',
-        'C2' => '300px'
-      );
-
-      //to do - implement this feature
-      // $elp_table .= '<table class="elp-table">';
-      // $elp_table .= '<tr><td>Category</td>';
-      // $elp_table .= '<td>A1</td><td>A2</td><td>B1</td><td>B2</td><td>C1</td><td>C2</td></tr>';
-      // foreach ($elp_categories as $category) {
-      //   $elp_table .=  '<tr class="row-'. $category .'"><td>';
-      //    //write out table row for each category, dynmically give class to each cell
-      // }
-      // $elp_table = '</table>';
+      // $elp_score_options = array(
+      //   'A1' => 50,
+      //   'A2' => 100,
+      //   'B1' => 150,
+      //   'B2' => 200,
+      //   'C1' => 250,
+      //   'C2' => 300
+      // );
 
       //write out entered data
       foreach ($elp_categories as $category) {
@@ -57,9 +47,12 @@ function add_elp($content) {
         $score_field_title = $field_base_name . '_score';
         $note_field_title = $field_base_name . '_score_additional_text_and_images';
 
-        //ceatgory heading
+        //catgory heading for each category
         $elp_content .= '<div class="elp-category cat-' . $field_base_name . '">';
         $elp_content .= '<h2>' . $category . '</h2>';
+
+        //a div for the graph for each category
+        //$elp_graph .= '<div class="graph-for-">' . $category . 'graph div</div>';
 
         //for each repeater row, two fields
         while( have_rows($repeater_field_title) ){
@@ -73,12 +66,11 @@ function add_elp($content) {
       }//end category
 
       $elp_content .= '</section>';
+      //$elp_graph .= '</section>';
 
-      return $content . $elp_content;
+      return $content . $elp_graph . $elp_content;
 
-  } else {
-    return $content;
-  }
+  } else { return $content; }
 }
 
 add_filter('the_content', 'add_elp');
