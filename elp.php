@@ -13,10 +13,11 @@ include 'elp_page.php';
 
 function add_elp($content) {
   //TO DO change this to test for if the page title has European Language Portfolio in it, so a person could have more than one if needed
-  //TO DO lets also hide the content and replace it with a name date updated, and language fields 
+  //TO DO lets also hide the content and replace it with a name date updated, and language fields
   $page = get_page_by_title( 'European Language Portfolio' );
   global $post;
   if ( is_page($page->ID) ) {
+
 
       //set up the section of the page
       $elp_content .= '<section class="elp">';
@@ -29,6 +30,26 @@ function add_elp($content) {
         'Writing'
       );
 
+      $elp_score_options = array(
+        'A1' => '50px',
+        'A2' => '100px',
+        'B1' => '150px',
+        'B2' => '200px',
+        'C1' => '250px',
+        'C2' => '300px'
+      );
+
+      //to do - implement this feature
+      // $elp_table .= '<table class="elp-table">';
+      // $elp_table .= '<tr><td>Category</td>';
+      // $elp_table .= '<td>A1</td><td>A2</td><td>B1</td><td>B2</td><td>C1</td><td>C2</td></tr>';
+      // foreach ($elp_categories as $category) {
+      //   $elp_table .=  '<tr class="row-'. $category .'"><td>';
+      //    //write out table row for each category, dynmically give class to each cell
+      // }
+      // $elp_table = '</table>';
+
+      //write out entered data
       foreach ($elp_categories as $category) {
         //we'll need these strings to call fields from within loops
         $field_base_name = strtolower(preg_replace('/\s+/', '', $category));
