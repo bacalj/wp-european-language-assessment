@@ -74,3 +74,9 @@ function add_elp($content) {
 }
 
 add_filter('the_content', 'add_elp');
+
+//add the styles
+function elp_styles(){
+  wp_enqueue_style('elp_plugin_styles', plugins_url('elp_styles.css', __FILE__));
+}
+add_action('wp_enqueue_scripts', 'elp_styles');
