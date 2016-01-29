@@ -10,6 +10,7 @@
 
 //include 'elp_page.php';
 include 'elp_class.php';
+include 'translation_studies_cats.php';
 //include 'elp_fields.php';
 
 function add_elp($content) {
