@@ -27,7 +27,7 @@ class EuropeanLanguagePortfolio {
       $this->elp_content .= '<div class="elp-category cat-' . $field_base_name . '">';
       $this->elp_content .= '<h3>' . $category . '</h3>';
 
-      //for each repeater row, two fields
+      //for each repeater row, three fields
       while( have_rows($repeater_field_title) ){
         the_row();
         if( get_sub_field('show_on_front') == true ) {
@@ -36,6 +36,7 @@ class EuropeanLanguagePortfolio {
           $this->elp_content .= '<div class="elp-score-notes">' . get_sub_field($note_field_title) . '</div>';
         }
       } //end repeater instance(s)
+
       $this->elp_content .= '</div>';
     }
     $this->elp_content .= '</section>';
