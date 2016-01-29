@@ -8,9 +8,7 @@
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
   */
 
-//include 'elp_page.php';
 include 'elp_class.php';
-include 'translation_studies_cats.php';
 //include 'elp_fields.php';
 
 function add_elp($content) {
@@ -28,3 +26,25 @@ function elp_styles(){
   wp_enqueue_style('elp_plugin_styles', plugins_url('elp_styles.css', __FILE__));
 }
 add_action('wp_enqueue_scripts', 'elp_styles');
+
+//add translation studies categories and tag on plugin activation
+function elaplugin_activate() {
+
+  $terms_to_add = array(
+    "European Language Portfolio",
+    "Category_A",
+    "Category_B"
+  );
+
+  foreach ($terms_to_add as $trm) {
+    if (term_exists($trm) == 0 ){
+      wp_create_category($trm);
+    }
+  }
+
+  //wp_insert_term();
+  if (term_exists("Translation Studies") == 0 ){
+    wp_create_tag("Translation Studies");
+  }
+}
+register_activation_hook( __FILE__, 'elaplugin_activate' );
