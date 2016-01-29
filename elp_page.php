@@ -1,5 +1,6 @@
 <?php
 //thanks Tom McFarlin
+//if an elp page doesn't exist, make it exist
 function create_elp_page() {
 
 	// Initialize the page ID to -1. This indicates no action has been taken.
