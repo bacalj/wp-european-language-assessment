@@ -8,20 +8,17 @@
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
   */
 
-include 'elp_page.php';
+//include 'elp_page.php';
 include 'elp_class.php';
 //include 'elp_fields.php';
 
 function add_elp($content) {
-  $page = get_page_by_title( 'European Language Portfolio' );
   global $post;
-  if ( is_page($page->ID) ) {
+  if ( has_category('European Language Portfolio') ) {
     $elp = new EuropeanLanguagePortfolio($post);
     $elp->build_scoreset();
     return $content . $elp->elp_content();
-  } else {
-    return $content;
-  }
+  } else { return $content; }
 }
 add_filter('the_content', 'add_elp');
 
