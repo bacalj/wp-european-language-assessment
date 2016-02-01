@@ -16,16 +16,17 @@ function add_elp($content) {
   if ( has_category('European Language Portfolio') ) {
     $elp = new EuropeanLanguagePortfolio($post);
     $elp->build_scoreset();
-    return $content . $elp->elp_content();
+    return $content . $elp->elp_title() . $elp->render_graph_divs() . $elp->elp_content();
   } else { return $content; }
 }
 add_filter('the_content', 'add_elp');
 
-//add the styles
-function elp_styles(){
+//add the js and styles
+function elp_styles_scripts(){
   wp_enqueue_style('elp_plugin_styles', plugins_url('elp_styles.css', __FILE__));
+  wp_enqueue_script( 'elp-graph', plugins_url( 'elp-graph.js' , __FILE__ ), array('jquery'), '', true );
 }
-add_action('wp_enqueue_scripts', 'elp_styles');
+add_action('wp_enqueue_scripts', 'elp_styles_scripts');
 
 //add translation studies categories and tag on plugin activation
 function elaplugin_activate() {

@@ -12,9 +12,13 @@ class EuropeanLanguagePortfolio {
     );
   }
 
+  public function elp_title(){
+    return '<div class="elp-title">'. get_field('name') . ' | ' . get_field('language') . '</div>';
+  }
+  
   public function build_scoreset(){
     $this->elp_content = '<section class="elp-content">';
-    $this->elp_content .= '<div class="elp-top">'. get_field('name') . ' | ' . get_field('language') . '</div>';
+
     foreach ($this->elp_categories as $category) {
       //we'll need these strings to call fields from within loops
       $field_base_name = strtolower(preg_replace('/\s+/', '', $category));
@@ -31,9 +35,9 @@ class EuropeanLanguagePortfolio {
       while( have_rows($repeater_field_title) ){
         the_row();
         if( get_sub_field('show_on_front') == true ) {
-          $this->elp_content .= '<div class="elp-date">' . get_sub_field($date_field_title) . '</div>';
-          $this->elp_content .= '<div class="elp-score">' . get_sub_field($score_field_title) . '</div>';
-          $this->elp_content .= '<div class="elp-score-notes">' . get_sub_field($note_field_title) . '</div>';
+          $this->elp_content .= '<div class="elp-date elp-'. $field_base_name . '">' . get_sub_field($date_field_title) . '</div>';
+          $this->elp_content .= '<div class="elp-score elp-' . $field_base_name . '">' . get_sub_field($score_field_title) . '</div>';
+          $this->elp_content .= '<div class="elp-score-notes elp-' . $field_base_name . '">' . get_sub_field($note_field_title) . '</div>';
         }
       } //end repeater instance(s)
 
@@ -46,7 +50,13 @@ class EuropeanLanguagePortfolio {
     return $this->elp_content;
   }
 
-  public function render_graph(){
-    return '[graph]';
+  public function render_graph_divs(){
+    $this->elp_graph .= '<div class="elp-graph-wrapper">';
+    foreach ($this->elp_categories as $cat) {
+      $field_base_name = strtolower(preg_replace('/\s+/', '', $cat));
+      $this->elp_graph .= '<div class="elp-graph-data elp-data-' . $field_base_name . '"></div>';
+    }
+    $this->elp_graph .= '</div>';
+    return $this->elp_graph;
   }
 }
