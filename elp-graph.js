@@ -1,32 +1,42 @@
 jQuery( document ).ready(function() {
     var topScoresArray = [];
     var scoreKey = {
-      'A1' : 60,
-      'A2' : 120,
-      'B1' : 180,
-      'B2' : 240,
-      'C1' : 300,
-      'C2' : 360
+      'A1' : 40,
+      'A2' : 80,
+      'B1' : 120,
+      'B2' : 160,
+      'C1' : 200,
+      'C2' : 240
     };
 
-    // function highestScoreForCat(element){
-    //   catRawStrings = jQuery(element).find('b');
-    //   catSet = [];
-    //   jQuery.each(catRawStrings, function(i, v){
-    //
-    //   });
-    // }
+    var eachCatSelectors = [
+      '.cat-listening .elp-score',
+      '.cat-reading .elp-score',
+      '.cat-spokeninteraction .elp-score',
+      '.cat-spokenproduction .elp-score',
+      '.cat-writing .elp-score'
+    ];
 
+    function highestScoreForCat(element){
+      var catRawStrings = jQuery(element).find('b');
+      var catSet = [];
+      jQuery.each(catRawStrings, function(index, value){
+        var scoreString = value.innerHTML;
+        var score = scoreKey[scoreString];
+        catSet.push(score);
+      });
+      var finalCatScore = Math.max.apply(Math, catSet);
+      //console.log(finalCatScore);
+      topScoresArray.push(finalCatScore);
+    }
 
-    //find, specifically, each highest of any nubmer of scores from each category
-    var listeningScores = jQuery('.cat-listening .elp-score').find('b');
-    var listeningSet = [];
-    jQuery.each(listeningScores, function( index, value ) {
-       var scoreString = value.innerHTML;
-       var score = scoreKey[scoreString];
-       listeningSet.push(score);
-    });
-    //console.log(listeningSet);
-    var listeningScore = Math.max.apply(Math, listeningSet);
-    console.log(listeningScore);
+    //create array of top scores
+    eachCatSelectors.forEach(highestScoreForCat);
+    console.log(topScoresArray);
+
+    var listeningPixels = topScoresArray[0].toString() + 'px';
+    jQuery('.elp-data-listening').width(listeningPixels);
+
+    var readingPixels = topScoresArray[1].toString() + 'px';
+    jQuery('.elp-data-reading').width(readingPixels);
 });

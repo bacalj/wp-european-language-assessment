@@ -31,3 +31,13 @@
   border-bottom:1px solid #ddd;
   margin-bottom:40px;
 }
+
+.elp-graph-wrapper {
+  width:240px;
+  margin:15px auto;
+}
+
+.elp-graph-data {
+  height:40px;
+  background-color:#ccc;
+}
