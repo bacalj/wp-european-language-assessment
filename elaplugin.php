@@ -1,7 +1,7 @@
 <?php
   /*
-  Plugin Name: European Language Assessment
-  Description: Set up and track your progress on the European Language Assessment. Requires Eliot Condon's Advanced Custom Fields plugin.
+  Plugin Name: Smith College Translation Studies Concentration
+  Description: European Language Portfolio and standardized categories for Translation Studies Concentration. Requires ACF Pro.
   Version:     0.1
   Author:      Joe Bacal, Smith College
   License:     GPL2
@@ -41,13 +41,14 @@ function elaplugin_activate() {
     "Assessing Language Skills"
   );
 
+  //create those categories if they don't already exist
   foreach ($terms_to_add as $trm) {
     if (term_exists($trm) == 0 ){
       wp_create_category($trm);
     }
   }
 
-  //wp_insert_term();
+  //add the translation studies tag
   if (term_exists("Translation Studies") == 0 ){
     wp_create_tag("Translation Studies");
   }
