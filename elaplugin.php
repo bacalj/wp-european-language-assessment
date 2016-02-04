@@ -34,8 +34,11 @@ function elaplugin_activate() {
 
   $terms_to_add = array(
     "European Language Portfolio",
-    "Category_A",
-    "Category_B"
+    "Learning a Language",
+    "Studying Abroad",
+    "Practicing",
+    "Translating",
+    "Assessing Language Skills"
   );
 
   foreach ($terms_to_add as $trm) {
