@@ -15,7 +15,7 @@ class EuropeanLanguagePortfolio {
   public function elp_title(){
     return '<div class="elp-title">'. get_field('name') . ' | ' . get_field('language') . '</div>';
   }
-  
+
   public function build_scoreset(){
     $this->elp_content = '<section class="elp-content">';
 

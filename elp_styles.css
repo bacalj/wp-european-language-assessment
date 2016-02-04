@@ -12,6 +12,10 @@
   padding:20px;
 }
 
+.elp-score-notes {
+  padding-top:3px;
+}
+
 .elp-date {
   background-color: #efefef;
   border: 1px solid #ddd;

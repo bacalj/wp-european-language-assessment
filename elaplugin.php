@@ -9,7 +9,7 @@
   */
 
 include 'elp_class.php';
-//include 'elp_fields.php';
+include 'elp_fields.php';
 
 function add_elp($content) {
   global $post;
