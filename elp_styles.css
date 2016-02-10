@@ -17,7 +17,7 @@
 }
 
 .elp-date {
-  background-color: #efefef;
+  //background-color: #efefef;
   border: 1px solid #ddd;
 }
 
@@ -26,7 +26,7 @@
   border-right:1px solid #ddd;
   font-size: 85%;
   font-style:italic;
-  color:#515151;
+  //color:#515151;
 }
 
 .elp-score-notes {
