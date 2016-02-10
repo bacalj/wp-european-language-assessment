@@ -19,6 +19,7 @@
 .elp-date {
   //background-color: #efefef;
   border: 1px solid #ddd;
+  font-weight: bold;
 }
 
 .elp-score {
