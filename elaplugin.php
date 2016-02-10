@@ -13,7 +13,7 @@ include 'elp_fields.php';
 
 function add_elp($content) {
   global $post;
-  if ( has_category('European Language Portfolio') ) {
+  if ( has_category('Assessing Language Skills') ) {
     $elp = new EuropeanLanguagePortfolio($post);
     $elp->build_scoreset();
     //return $content . $elp->elp_title() . $elp->render_graph_divs() . $elp->elp_content();
@@ -33,7 +33,6 @@ add_action('wp_enqueue_scripts', 'elp_styles_scripts');
 function elaplugin_activate() {
 
   $terms_to_add = array(
-    "European Language Portfolio",
     "Learning a Language",
     "Studying Abroad",
     "Practicing",
