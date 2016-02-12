@@ -49,6 +49,22 @@ acf_add_local_field_group(array (
 			'disabled' => 0,
 		),
 		array (
+			'key' => 'field_56be176bbb32f',
+			'label' => 'Show Graph',
+			'name' => 'show_graph',
+			'type' => 'true_false',
+			'instructions' => 'The graph only displays your highest visible scores',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+		),
+		array (
 			'key' => 'field_569d367fee643',
 			'label' => 'Listening',
 			'name' => '',
