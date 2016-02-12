@@ -50,13 +50,18 @@ class EuropeanLanguagePortfolio {
     return $this->elp_content;
   }
 
+  //add a "show graph field, and then if show graph = true"
+
   public function render_graph_divs(){
-    $this->elp_graph .= '<div class="elp-graph-wrapper">';
-    foreach ($this->elp_categories as $cat) {
-      $field_base_name = strtolower(preg_replace('/\s+/', '', $cat));
-      $this->elp_graph .= '<div class="elp-graph-data elp-data-' . $field_base_name . '"></div>';
+    if( get_sub_field('show_graph') == true ){
+      $this->elp_graph .= '<div class="elp-graph-wrapper">';
+      foreach ($this->elp_categories as $cat) {
+        $this->elp_graph .= '<div class="elp-graph-label">' . $cat . '</div>';
+        $field_base_name = strtolower(preg_replace('/\s+/', '', $cat));
+        $this->elp_graph .= '<div class="elp-graph-data elp-data-' . $field_base_name . '"></div>';
+      }
+      $this->elp_graph .= '</div>';
+      return $this->elp_graph;
     }
-    $this->elp_graph .= '</div>';
-    return $this->elp_graph;
   }
 }

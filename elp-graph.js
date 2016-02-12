@@ -1,12 +1,12 @@
 jQuery( document ).ready(function() {
     var topScoresArray = [];
     var scoreKey = {
-      'A1' : 40,
-      'A2' : 80,
-      'B1' : 120,
-      'B2' : 160,
-      'C1' : 200,
-      'C2' : 240
+      'A1' : 20,
+      'A2' : 40,
+      'B1' : 60,
+      'B2' : 80,
+      'C1' : 100,
+      'C2' : 120
     };
 
     var eachCatSelectors = [
@@ -32,7 +32,7 @@ jQuery( document ).ready(function() {
 
     //create array of top scores
     eachCatSelectors.forEach(highestScoreForCat);
-    console.log(topScoresArray);
+    //console.log(topScoresArray);
 
     var listeningPixels = topScoresArray[0].toString() + 'px';
     jQuery('.elp-data-listening').width(listeningPixels);
