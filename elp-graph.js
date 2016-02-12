@@ -39,4 +39,13 @@ jQuery( document ).ready(function() {
 
     var readingPixels = topScoresArray[1].toString() + 'px';
     jQuery('.elp-data-reading').width(readingPixels);
+
+    var spokenInteractionPixels = topScoresArray[2].toString() + 'px';
+    jQuery('.elp-data-spokeninteraction').width(spokenInteractionPixels);
+
+    var spokenProductionPixels = topScoresArray[3].toString() + 'px';
+    jQuery('.elp-data-spokenproduction').width(spokenProductionPixels);
+
+    var writingPixels = topScoresArray[4].toString() + 'px';
+    jQuery('.elp-data-writing').width(writingPixels);
 });
