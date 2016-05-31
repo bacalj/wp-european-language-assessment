@@ -13,14 +13,19 @@ include 'elp_fields.php';
 
 function add_elp($content) {
   global $post;
-  if ( has_category('Assessing Language Skills') ) {
+  if ( has_category('European Language Portfolio') ) {
 
     $elp = new EuropeanLanguagePortfolio($post);
     $elp->build_scoreset();
 
-    return $content . $elp->elp_title() . $elp->render_graph_divs() . $elp->elp_content();
-    //return $content . $elp->elp_title() . $elp->elp_content();
+    //show graph on single pages only
+    if (is_single()) {
+      return $content . $elp->elp_title() . $elp->render_graph_divs() . $elp->elp_content();
+    } else {
+      return $content . $elp->elp_title() . $elp->elp_content();
+    }
 
+  //otherwise return the normal content
   } else { return $content; }
 }
 add_filter('the_content', 'add_elp');
@@ -32,15 +37,11 @@ function elp_styles_scripts(){
 }
 add_action('wp_enqueue_scripts', 'elp_styles_scripts');
 
-//add translation studies categories and tag on plugin activation
+//add ELP category on plugin activation
 function elaplugin_activate() {
 
   $terms_to_add = array(
-    "Learning a Language",
-    "Studying Abroad",
-    "Practicing",
-    "Translating",
-    "Assessing Language Skills"
+    "European Language Portfolio"
   );
 
   //create those categories if they don't already exist
@@ -48,11 +49,6 @@ function elaplugin_activate() {
     if (term_exists($trm) == 0 ){
       wp_create_category($trm);
     }
-  }
-
-  //add the translation studies tag
-  if (term_exists("Translation Studies") == 0 ){
-    wp_create_tag("Translation Studies");
   }
 }
 register_activation_hook( __FILE__, 'elaplugin_activate' );

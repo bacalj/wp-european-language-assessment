@@ -640,7 +640,7 @@ acf_add_local_field_group(array (
 			array (
 				'param' => 'post_category',
 				'operator' => '==',
-				'value' => 'category:assessing-language-skills',
+				'value' => 'category:european-language-portfolio',
 			),
 		),
 	),

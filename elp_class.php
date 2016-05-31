@@ -50,8 +50,6 @@ class EuropeanLanguagePortfolio {
     return $this->elp_content;
   }
 
-  //add a "show graph field, and then if show graph = true"
-
   public function render_graph_divs(){
     if( get_field('show_graph') == true ){
       $this->elp_graph .= '<div class="elp-graph-wrapper">';
