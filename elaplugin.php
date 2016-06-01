@@ -1,6 +1,6 @@
 <?php
   /*
-  Plugin Name: Smith College Translation Studies Concentration
+  Plugin Name: WP European Language Portfolio
   Description: Complete a European Language Portfolio in a WordPress post. Requires ACF Pro.
   Version:     0.1
   Author:      Joe Bacal, Smith College
