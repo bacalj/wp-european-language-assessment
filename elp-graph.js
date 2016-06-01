@@ -17,6 +17,7 @@ jQuery( document ).ready(function() {
       '.cat-writing .elp-score'
     ];
 
+    //get the highest score for each category
     function highestScoreForCat(element){
       var catRawStrings = jQuery(element).find('b');
       var catSet = [];
@@ -26,26 +27,30 @@ jQuery( document ).ready(function() {
         catSet.push(score);
       });
       var finalCatScore = Math.max.apply(Math, catSet);
-      //console.log(finalCatScore);
       topScoresArray.push(finalCatScore);
     }
 
-    //create array of top scores
+    //create array of the top scores
     eachCatSelectors.forEach(highestScoreForCat);
-    //console.log(topScoresArray);
 
+    //make width 0 for all until score gives them width
+    jQuery('.elp-data-listening').width('0px');
+    jQuery('.elp-data-reading').width('0px');
+    jQuery('.elp-data-spokeninteraction').width('0px');
+    jQuery('.elp-data-spokenproduction').width('0px');
+    jQuery('.elp-data-writing').width('0px');
+
+    //create pixel widths
     var listeningPixels = topScoresArray[0].toString() + 'px';
-    jQuery('.elp-data-listening').width(listeningPixels);
-
     var readingPixels = topScoresArray[1].toString() + 'px';
-    jQuery('.elp-data-reading').width(readingPixels);
-
     var spokenInteractionPixels = topScoresArray[2].toString() + 'px';
-    jQuery('.elp-data-spokeninteraction').width(spokenInteractionPixels);
-
     var spokenProductionPixels = topScoresArray[3].toString() + 'px';
-    jQuery('.elp-data-spokenproduction').width(spokenProductionPixels);
-
     var writingPixels = topScoresArray[4].toString() + 'px';
+
+    //apply the widths
+    jQuery('.elp-data-listening').width(listeningPixels);
+    jQuery('.elp-data-reading').width(readingPixels);
+    jQuery('.elp-data-spokeninteraction').width(spokenInteractionPixels);
+    jQuery('.elp-data-spokenproduction').width(spokenProductionPixels);
     jQuery('.elp-data-writing').width(writingPixels);
 });
