@@ -1,7 +1,7 @@
 <?php
   /*
   Plugin Name: Smith College Translation Studies Concentration
-  Description: European Language Portfolio and standardized categories for Translation Studies Concentration. Requires ACF Pro.
+  Description: Complete a European Language Portfolio in a WordPress post. Requires ACF Pro.
   Version:     0.1
   Author:      Joe Bacal, Smith College
   License:     GPL2
