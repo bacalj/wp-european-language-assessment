@@ -13,7 +13,7 @@ include 'elp_fields.php';
 
 function add_elp($content) {
   global $post;
-  if ( has_category('European Language Portfolio') ) {
+  if ( has_category('European Language Portfolio') && function_exists('elaplugin_activate')) {
 
     $elp = new EuropeanLanguagePortfolio($post);
     $elp->build_scoreset();
