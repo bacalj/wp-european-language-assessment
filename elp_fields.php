@@ -652,7 +652,7 @@ acf_add_local_field_group(array (
 	'hide_on_screen' => array (
 		0 => 'format',
 		1 => 'page_attributes',
-		2 => 'send-trackbacks',
+		2 => 'send-trackbacks'
 	),
 	'active' => 1,
 	'description' => '',
