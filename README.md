@@ -11,6 +11,7 @@ http://www.advancedcustomfields.com/
 3. Activate the plugin
 
 ## How to Use
-1. When you activate the plugin, it will automatically create a post category called "European Language Assessment"
+1. When you activate the plugin, (and Advanced Custom Fields Pro) it will automatically create a post category called "European Language Assessment"
 2. Create a new post, and select "European Language Assessment" as the category.
-3. The edit screen of your post should change
+3. The edit screen of your post will change - you'll see the default post area plus new fields.
+4. Add data for each category. You can add as many individual scores as you like per category. 
